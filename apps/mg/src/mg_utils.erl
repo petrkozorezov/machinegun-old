@@ -44,6 +44,8 @@
 -export_type([genlib_retry_policy/0]).
 -export([genlib_retry_new/1]).
 
+-export([concatenate_namespaces/2]).
+
 %%
 %% API
 %% OTP
@@ -238,3 +240,8 @@ genlib_retry_new({timecap, Timeout, Policy}) ->
     genlib_retry:timecap(Timeout, genlib_retry_new(Policy));
 genlib_retry_new(BadPolicy) ->
     erlang:error(badarg, [BadPolicy]).
+
+-spec concatenate_namespaces(mg:ns(), mg:ns()) ->
+    mg:ns().
+concatenate_namespaces(NamespaceA, NamespaceB) ->
+    <<NamespaceA/binary, "_", NamespaceB/binary>>.

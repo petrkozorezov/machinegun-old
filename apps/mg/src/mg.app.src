@@ -6,6 +6,7 @@
         kernel,
         stdlib,
         genlib,
+        raft,
         gproc,
         riakc,
         msgpack
